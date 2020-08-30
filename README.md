@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-0.0.0-orange.svg)
+![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)
 [![Build Status](https://travis-ci.org/promptapi/bin-checker-go.svg?branch=main)](https://travis-ci.org/promptapi/bin-checker-go)
 
 # Prompt API - BIN Checker - Golang Package
