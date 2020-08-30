@@ -85,6 +85,27 @@ $ PROMPTAPI_TOKEN="fake" \
   go run main.go
 ```
 
+User rake tasks:
+
+```bash
+$ rake
+
+rake default                    # Default task, show avaliable tasks
+rake release:check              # Do release check
+rake release:publish[revision]  # Publish project with revision: major,minor,patch, default: patch
+rake serve_doc[port]            # Run doc server
+rake test[verbose]              # Run tests
+```
+
+- Run tests: `rake test` or `rake test[-v]`
+- Run doc server: `rake serve_doc` or `rake serve_doc[9000]`
+
+Release package (*if you have write access*):
+
+1. Commit your changes
+1. Run `rake release:check`
+1. If all goes ok, run `rake release:publish`
+
 ---
 
 ## License
