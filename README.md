@@ -19,13 +19,71 @@ then;
 
 ## Example Usage
 
-@WIP
+```go
+// main.go
+
+package main
+
+import (
+	"fmt"
+	"os"
+
+	binchecker "github.com/promptapi/bin-checker-go"
+)
+
+func main() {
+	result := new(binchecker.Result)
+
+	if err := binchecker.BinChecker("302596", result); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("%+v\n", result)
+
+	fmt.Printf("BankName: %s\n", result.BankName)
+	fmt.Printf("Country: %s\n", result.Country)
+	fmt.Printf("URL: %s\n", result.URL)
+	fmt.Printf("Type: %s\n", result.Type)
+	fmt.Printf("Scheme: %s\n", result.Scheme)
+	fmt.Printf("Bin: %s\n", result.Bin)
+}
+```
+
+Run from cli:
+
+```bash
+$ PROMPTAPI_TOKEN="YOUR-PROMPTAPI-TOKEN" go run main.go
+
+&{BankName:Diners Club International Country:United States Of America URL:www.dinersclub.com Type:Credit Scheme:Discover Bin:302596}
+BankName: Diners Club International
+Country: United States Of America
+URL: www.dinersclub.com
+Type: Credit
+Scheme: Discover
+Bin: 302596
+```
 
 ---
 
 ## Development
 
-@WIP
+Create a fake web-server under `/tmp/`;
+
+```bash
+$ mkdir /tmp/server/
+$ cp test.json /tmp/server/
+$ cd /tmp/server/
+$ python -m http.server 8000
+```
+
+And use:
+
+```bash
+$ PROMPTAPI_TOKEN="fake" \
+  PROMPTAPI_TEST_ENDPOINT="http://localhost:8000/test.json" \
+  go run main.go
+```
 
 ---
 

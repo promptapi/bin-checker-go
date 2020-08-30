@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"time"
 )
 
 // Result represents incoming JSON data from Prompt API - BIN Checker
@@ -32,15 +33,26 @@ func BinChecker(binNumber string, result *Result) error {
 		return errors.New("You need to set PROMPTAPI_TOKEN environment variable")
 	}
 
-	client := &http.Client{}
+	client := &http.Client{
+		Timeout: 5 * time.Second,
+	}
+	requestURL := promptAPIEndpoint + binNumber
 
-	req, err := http.NewRequest("GET", promptAPIEndpoint+binNumber, nil)
+	testURL, ok := os.LookupEnv("PROMPTAPI_TEST_ENDPOINT")
+	if ok {
+		requestURL = testURL
+	}
+
+	req, err := http.NewRequest("GET", requestURL, nil)
 	req.Header.Set("apikey", apiKey)
 	if err != nil {
 		return err
 	}
 
 	res, err := client.Do(req)
+	if err != nil {
+		return err
+	}
 	if res.Body != nil {
 		defer res.Body.Close()
 	}
