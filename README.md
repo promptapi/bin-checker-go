@@ -133,6 +133,6 @@ the [code of conduct][coc].
 
 ---
 
-[bincheck-api]:     https://promptapi.com/marketplace/docs/bincheck-api
+[bincheck-api]:     https://promptapi.com/marketplace/description/bincheck-api
 [promptapi-signup]: https://promptapi.com/#signup-form
 [coc]:              https://github.com/promptapi/bin-checker-go/blob/main/CODE_OF_CONDUCT.md
