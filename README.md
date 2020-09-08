@@ -1,4 +1,7 @@
 ![Version](https://img.shields.io/badge/version-0.1.0-orange.svg)
+![Go](https://img.shields.io/badge/go-1.15.1-black.svg)
+[![Documentation](https://godoc.org/github.com/promptapi/bin-checker-go?status.svg)](https://pkg.go.dev/github.com/promptapi/bin-checker-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/promptapi/bin-checker-go)](https://goreportcard.com/report/github.com/promptapi/bin-checker-go)
 [![Build Status](https://travis-ci.org/promptapi/bin-checker-go.svg?branch=main)](https://travis-ci.org/promptapi/bin-checker-go)
 
 # Prompt API - BIN Checker - Golang Package
@@ -12,6 +15,12 @@
 1. You need to set `PROMPTAPI_TOKEN` environment variable after subscription.
 
 ---
+
+## Installation
+
+```go
+$ go get -u github.com/promptapi/bin-checker-go
+```
 
 ## Example Usage
 
